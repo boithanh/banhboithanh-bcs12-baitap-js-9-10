@@ -60,7 +60,7 @@ function checkDateTime(value, span) {
 
 function checkHoTen(value, span) {
     let regexHoTen = /^[a-zA-Z\s]+$/;
-
+    //   let regexHoTen =  /^[a-zA-ZÀ-ỹ\s]+$/
     let isValid = regexHoTen.test(value);
     if (isValid) {
         span.innerHTML = "";
