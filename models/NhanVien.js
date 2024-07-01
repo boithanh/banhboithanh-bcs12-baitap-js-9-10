@@ -18,14 +18,14 @@ class NhanVien {
                 return lCB * 2;
             }
             default: {
-                return lCB;
+                return lCB * 1;
             }
         }
     }
     xepLoai = function () {
         let gL = this.gioLam;
         if (gL >= 192) {
-            return "Xuất Sấc";
+            return "Xuất Sắc";
         }
         else if (gL >= 176 && gL < 192) {
             return "Giỏi";

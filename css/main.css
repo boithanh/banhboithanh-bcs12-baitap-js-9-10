@@ -1,8 +1,13 @@
 .sp-thongbao {
-  color: red;
+  cursor: pointer;
+  color: white;
   margin-left: 2px;
+  background-image: linear-gradient(to left, #dbdcd7, #dddcd7, #e2c9cc, #e7627d, #b8235a, #801357, #3d1635, #1c1a27);
+  background-size: 150%;
   display: none;
+  animation: bayMau 5s forwards;
 }
+
 
 #SapXepGiam {
   display: none;
@@ -19,18 +24,17 @@
 
 }
 
-
 .myCardHeader,
 .myCardFooter {
   background-color: transparent;
 }
 
 .table {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .table th {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   padding: 10px 5px;
 }
 
@@ -40,6 +44,14 @@
   vertical-align: middle;
 }
 
-/* .table th i {
-  font-size: 5px;
-} */
+
+@keyframes bayMau {
+  0% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 300% 0%;
+  }
+
+}

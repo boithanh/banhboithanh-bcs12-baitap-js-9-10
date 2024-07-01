@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Quản lý nhân viên</title>
+	<link rel="icon" type="image/x-icon" href="/img/boithanh.png">
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -113,8 +114,7 @@
 								<h3 class="text-left text-primary font-weight-bold">Danh sách nhân viên</h3>
 							</div>
 							<div class="col-md-6 text-right">
-								<button class="btn btn-primary" id="btnThem" data-toggle="modal"
-									data-target="#myModal">Thêm nhân viên</button>
+								<button class="btn btn-primary" id="btnThem">Thêm nhân viên</button>
 							</div>
 						</div>
 					</div>
@@ -171,24 +171,17 @@
 
 
 	<!-- The Modal -->
-	<div class="modal fade" id="myModal">
+	<div class="modal fade" id="modalNhanVien">
 		<div class="modal-dialog">
 			<div class="modal-content">
 
-				<header class="head-form mb-0">
-					<h2 id="header-title">Log In</h2>
+				<header class="head-form mt-3 mb-0">
+					<h2 id="header-title">Thêm Nhân Viên</h2>
 				</header>
-
-				<!-- Modal Header -->
-				<!-- 	<div class="modal-header">
-					<h4 class="modal-title" id="modal-title">Modal Heading</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div> -->
-
 				<!-- Modal body -->
 				<div class="modal-body">
 
-					<form role="form">
+					<form role="form" id="QLNV">
 
 						<div class="form-group">
 							<div class="input-group">
@@ -196,7 +189,7 @@
 									<span class="input-group-text"><i class="fa fa-user"></i></span>
 								</div>
 								<input type="text" name="tk" id="tknv" class="form-control input-sm"
-									placeholder="Tài khoản">
+									placeholder="Tài khoản" data-validation="ktTaiKhoan">
 							</div>
 
 							<span class="sp-thongbao" id="tbTKNV"></span>
@@ -208,7 +201,7 @@
 									<span class="input-group-text"><i class="fa fa-address-book"></i></span>
 								</div>
 								<input type="name" name="name" id="name" class="form-control input-sm"
-									placeholder="Họ và tên">
+									placeholder="Họ và tên" data-validation="ktHoTen">
 							</div>
 							<span class="sp-thongbao" id="tbTen"></span>
 						</div>
@@ -218,8 +211,8 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-envelope"></i></span>
 								</div>
-								<input type="email" name="email" id="email" class="form-control input-sm"
-									placeholder="Email">
+								<input type="text" name="email" id="email" class="form-control input-sm"
+									placeholder="Email" data-validation="ktEmail">
 							</div>
 
 							<span class="sp-thongbao" id="tbEmail"></span>
@@ -231,7 +224,7 @@
 									<span class="input-group-text"><i class="fa fa-key"></i></span>
 								</div>
 								<input type="password" name="password" id="password" class="form-control input-sm"
-									placeholder="Mật khẩu">
+									placeholder="Mật khẩu" data-validation="ktPW">
 							</div>
 							<span class="sp-thongbao" id="tbMatKhau"></span>
 						</div>
@@ -242,7 +235,7 @@
 									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
 								</div>
 								<input type="text" name="ngaylam" id="datepicker" class="form-control"
-									placeholder="Ngày làm">
+									placeholder="Ngày làm" data-validation="ktNgayThang">
 							</div>
 
 							<span class="sp-thongbao" id="tbNgay"></span>
@@ -254,7 +247,7 @@
 									<span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
 								</div>
 								<input type="number" name="luongCB" id="luongCB" class="form-control input-sm"
-									placeholder="Lương cơ bản">
+									placeholder="Lương cơ bản" data-validation="ktMucLuong">
 							</div>
 							<span class="sp-thongbao" id="tbLuongCB"></span>
 						</div>
@@ -263,7 +256,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
 								</div>
-								<select class="form-control" id="chucvu">
+								<select class="form-control" id="chucvu" data-validation="ktChucVu">
 									<option value="">Chọn chức vụ</option>
 									<option value="Giám Đốc">Giám Đốc</option>
 									<option value="Trưởng Phòng">Trưởng phòng</option>
@@ -280,20 +273,22 @@
 											aria-hidden="true"></i></span>
 								</div>
 								<input type="number" name="gioLam" id="gioLam" class="form-control input-sm"
-									placeholder="Giờ làm">
+									placeholder="Giờ làm" data-validation="ktGioLam">
 							</div>
 							<span class="sp-thongbao" id="tbGiolam"></span>
+						</div>
+						<!-- Modal footer -->
+						<div class="modal-footer d-flex justify-content-center" id="modal-footer">
+							<button id="btnThemNV" type="submit" class="btn btn-success">Thêm người
+								dùng</button>
+							<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
+							<button id="btnDong" type="button" class="btn btn-danger">Đóng</button>
 						</div>
 
 					</form>
 				</div>
 
-				<!-- Modal footer -->
-				<div class="modal-footer" id="modal-footer">
-					<button id="btnThemNV" type="button" class="btn btn-success">Thêm người dùng</button>
-					<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
-					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-				</div>
+
 
 			</div>
 		</div>
@@ -311,6 +306,8 @@
 	<script src="vendor/datepicker.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 	<script src="models/NhanVien.js"></script>
+	<script src="util/util.js"></script>
+	<script src="validations/validation.js"></script>
 	<script src="js/index.js"></script>
 
 	<!-- Wow -->
@@ -327,6 +324,15 @@
 			$('#sidebarCollapse').on('click', function () {
 				$('#sidebar').toggleClass('active');
 			});
+		});
+	</script>
+	<script>
+		$(document).ready(function () {
+			$('#datepicker').datepicker({
+				autoclose: true,
+				clearBtn: true,
+				todayHighlight: true
+			}).datepicker('setDate', null);
 		});
 	</script>
 </body>
