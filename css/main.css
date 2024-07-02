@@ -10,6 +10,7 @@
   background-size: 150%;
   display: none;
   animation: bayMau 5s forwards;
+  animation-delay: 2s;
 }
 
 
