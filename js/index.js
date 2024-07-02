@@ -170,7 +170,7 @@ function updateNhanVien() {
     let index = arrNhanVien.findIndex((item, index) => {
         return item.tknv == nhanVien.tknv;
     });
-    if (index != 1) {
+    if (index != -1) {
         arrNhanVien[index] = nhanVien;
     }
     renderNhanVien();
